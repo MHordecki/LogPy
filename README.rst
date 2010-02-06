@@ -32,7 +32,7 @@ Using LogPy is dead simple::
 
     log('debug')('Hello World!')
 
-Voilà! LogPy instances are callable. To output a log, call log "twice" - in
+Voila! LogPy instances are callable. To output a log, call log "twice" - in
 first call pass all tags of the log, and everything passed to the second one
 will be considered a part of the message. The example will output logs to the
 standard error output. Easy, isn't it?
