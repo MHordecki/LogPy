@@ -35,7 +35,7 @@ class LogPy(object):
     def add_raw_output(self, output):
         self.outputs.add(output)
 
-    def __call__(self, *tags, curry = False):
+    def __call__(self, *tags, **kwargs):
         """
         Log a new message with the given tags.
 
@@ -43,7 +43,8 @@ class LogPy(object):
         Example usage: log('tag1', 'tag2')('log content')
         """
 
-        if curry:
+        assert not kwargs or (kwargs and tuple(kwargs.keys()) == ('curry',)), 'Only \'curry\' keyword argument allowed.'
+        if kwargs.get('curry', False):
             return self._spawn_curried(tags)
         
         def second_step(*args, **kwargs):
@@ -55,8 +56,8 @@ class LogPy(object):
         return second_step
 
     def _spawn_curried(self, tags):
-        def wrapped(*_tags, curry = False):
-            return self(*(_tags + tags), curry = curry)
+        def wrapped(*_tags, **kwargs):
+            return self(*(_tags + tags), **kwargs)
 
         return wrapped
 

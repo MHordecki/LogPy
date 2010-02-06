@@ -1,5 +1,5 @@
 
-from log import *
+from logpy import *
 
 class FakeFile:
     def __call__(self, msg):
@@ -88,4 +88,5 @@ def test_LogPy_currying():
 
     l('hello', curry = True)('world')('') 
 
-    assert o.tags == {'hello', 'world'}
+    #assert o.tags == {'hello', 'world'} - waiting for 2.7
+    assert o.tags == set(('hello', 'world'))

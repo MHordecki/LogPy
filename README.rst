@@ -19,6 +19,9 @@ That's all. LogPy, on the other hand, sports tags - you can attach short strings
 to each message. Tag can represent variety of things: severity level, module
 name, or some custom log categorization.
 
+LogPy requires Python 2.6 or higher. It works seamlessly on Python 3 too
+(in fact, it's developed with py3k in mind and then backported to Python 2.6).
+
 Getting started 
 ===============
 
