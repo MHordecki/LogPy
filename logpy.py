@@ -7,9 +7,9 @@ by Michal Hordecki
 http://github.com/MHordecki/LogPy
 """
 
-from threading import Lock
 import datetime
 from collections import Sequence
+from threading import Lock
 
 class Message(object):
     def __init__(self, tags, args, kwargs):
@@ -46,7 +46,7 @@ class LogPy(object):
         assert not kwargs or (kwargs and tuple(kwargs.keys()) == ('curry',)), 'Only \'curry\' keyword argument allowed.'
         if kwargs.get('curry', False):
             return self._spawn_curried(tags)
-        
+
         def second_step(*args, **kwargs):
             msg = self.message_type(tags, args, kwargs)
 
@@ -107,7 +107,7 @@ class Output(object):
 
     def add_filter(self, filter):
         """
-        Adds a new filter. filter parameter is a callable that 
+        Adds a new filter. filter parameter is a callable that
         returns a boolean value. Only messages for which all filters
         evaluate to True will be processed by this output.
         """

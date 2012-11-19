@@ -1,12 +1,12 @@
-from setuptools import setup
 from os.path import abspath, dirname, join
+from setuptools import setup
 
-readme_fn = join(abspath(dirname(__file__)), 'README.rst')
+readme_path = join(abspath(dirname(__file__)), 'README.rst')
 
 setup(name='LogPy',
-    version = '1.0',
+    version = '1.0.1',
     description = 'Unorthodox logging for python',
-    long_description = open(readme_fn).read(),
+    long_description = open(readme_path).read(),
     author = 'Michal Hordecki',
     author_email = 'mhordecki@gmail.com',
     url = 'http://github.com/MHordecki/LogPy',
